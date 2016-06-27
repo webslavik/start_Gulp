@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-      meta(charset="UTF-8")
-      title Start Project
-      meta(name="description" content="")
-      
-      meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
-      
-      link(rel="stylesheet", href="css/main.css")
-  body
+extends _layouts/pagewrapper
 
-      include partials/_start
-      
-      script(src='js/libs.min.js')
-      script(src='js/function.js')
+
+block title
+  | Project Title
+
+block includes
+
+  include _includes/_start

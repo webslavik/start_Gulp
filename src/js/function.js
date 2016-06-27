@@ -1,3 +1,6 @@
-(function() {
+!(function() {
+
+  console.log('hi world');
+
 
 })();
