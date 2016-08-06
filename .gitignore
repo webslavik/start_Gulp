@@ -64,4 +64,5 @@ bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
-src/libs/
+app/bower_components/
+

@@ -1,0 +1,9 @@
+{
+  "name": "start-project",
+  "version": "0.0.1",
+  "dependecies": {},
+  "dependencies": {
+    "jquery": "2.2.4",
+    "normalize-css": "normalize.css#^4.2.0"
+  }
+}

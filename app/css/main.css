@@ -1,0 +1,68 @@
+/**
+ * Foundation for Sites by ZURB
+ * Version 6.2.3
+ * foundation.zurb.com
+ * Licensed under MIT Open Source
+ */
+@font-face {
+  font-family: "OpenSansRegular";
+  src: url("../fonts/OpenSansRegular/OpenSansRegular.woff") format("woff"), url("../fonts/OpenSansRegular/OpenSansRegular.ttf") format("truetype"); }
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  position: relative;
+  line-height: 1.5;
+  font-family: 'OpenSansRegular', sans-serif;
+  background-color: #fff;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%; }
+
+img {
+  max-width: 100%; }
+
+ul {
+  list-style-type: none; }
+
+.container {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: block; }
+  .container :nth-child(n+1) {
+    background-color: tomato;
+    width: 100%;
+    float: left;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem; }
+    @media screen and (min-width: 40em) {
+      .container :nth-child(n+1) {
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem; } }
+    .container :nth-child(n+1):last-child:not(:first-child) {
+      float: right; }
+    @media screen and (min-width: 64em) {
+      .container :nth-child(n+1) {
+        background-color: green;
+        width: 33.33333%;
+        float: left;
+        padding-left: 0.625rem;
+        padding-right: 0.625rem; } }
+  @media screen and (min-width: 64em) and (min-width: 40em) {
+    .container :nth-child(n+1) {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+    @media screen and (min-width: 64em) {
+        .container :nth-child(n+1):last-child:not(:first-child) {
+          float: right; } }
+
+body {
+  background-color: lightblue;
+  text-align: center; }
