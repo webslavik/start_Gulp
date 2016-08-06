@@ -1,0 +1,98 @@
+.page-wrap {
+	
+}
+
+
+.container {
+	@include grid-row(12);
+}
+
+.page-title {
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+
+.sprites-section {
+	text-align: center;
+}
+
+/* Стили для наших иконок */
+.icon {
+	margin: 0 20px;
+}
+
+.icon-face {
+  font-size: rem(32);
+  width: 1.20833em; 
+
+  &.face-mod {
+  	fill: grey;
+  }
+
+}
+
+.icon-smartphone {
+  font-size: rem(48);
+  width: 1em; 
+
+  &.smartphone-mod {
+  	fill: purple;
+  }
+
+}
+
+.icon-youtube-4 {
+  font-size: rem(58);
+  width: 1em;
+
+  &.youtube4-mod {
+  	fill: tomato;
+  	transition: all 180ms ease-in-out;
+
+  	&:hover,
+	  &:active {
+	  	fill: red;
+	  }
+  }
+
+}
+
+.icon-gamepad {
+  font-size: rem(120);
+  width: 1em; 
+
+   &.gamepad-mod {
+  	color: lightblue;
+  	transition: all 180ms ease-in-out;
+
+  	&:hover,
+	  &:active {
+	 		color: grey;
+	  }
+  }
+
+}
+
+
+.icon-placeholder {
+  font-size: rem(140);
+  width: 1em; 
+}
+
+
+.icon-brainstorm {
+  font-size: rem(200);
+  width: 1em; 
+
+
+	&.brainstorm-mod {
+		color: red;
+		transition: all 180ms ease-in-out;
+
+		&:hover,
+	  &:active {
+	  	color: purple;
+	  }
+	}
+}

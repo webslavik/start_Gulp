@@ -5,5 +5,10 @@
   "dependencies": {
     "jquery": "2.2.4",
     "normalize-css": "normalize.css#^4.2.0"
+  },
+  "devDependencies": {
+    "svg4everybody": "^2.1.0",
+    "bourbon": "^4.2.7",
+    "foundation-sites": "^6.2.3"
   }
 }

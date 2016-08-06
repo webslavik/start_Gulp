@@ -1,18 +1,22 @@
 
-// 1 - TOOLS
-@import '1-tools/foundation/foundation'
-@import '1-tools/bourbon/bourbon'
+// 1 - TOOLS Подключаем стороние библиотеки и тд.
+
+// Фреймфорк
+@import '../bower_components/foundation-sites/scss/foundation.scss'
+
+// Библиотека полезных миксинов
+@import '../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss'
+
 
 
 // 2 - BASICS
+@import '2-basic/vars'
 @import '2-basic/fonts'
 @import '2-basic/elements'
-@import '2-basic/typography'
-@import '2-basic/vars'
 
 
 // 3 - MODULES
-@import '3-modules/grid'
+@import '3-modules/svg-sprite'
 @import '3-modules/buttons'
 
 // 4 - PAGES

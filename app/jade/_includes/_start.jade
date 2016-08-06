@@ -1,8 +1,20 @@
-h1 Start Project
+//- миксин для добавления иконок спрайта
+mixin icon(name,mod)
+	- mod = mod || ''
+	svg(class="icon icon-" + name + ' ' + mod)
+		use(xlink:href="img/icon-svg/main-sprite.svg#" + name)
 
-.container
-  .block-1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit nemo, fuga, facilis ab ipsum consectetur reprehenderit mollitia aspernatur culpa veritatis.
-  .block-2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit nemo, fuga, facilis ab ipsum consectetur reprehenderit mollitia aspernatur culpa veritatis.
-  .block-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit nemo, fuga, facilis ab ipsum consectetur reprehenderit mollitia aspernatur culpa veritatis.
-  
-  img(src="img/cat.jpg", alt="")
+
+.container.page-title
+	h1 Project elements
+
+
+
+.container.sprites-section
+	h2 SVG Icons
+	+icon('face', 'face-mod')
+	+icon('smartphone', 'smartphone-mod')
+	+icon('youtube-4', 'youtube4-mod')
+	+icon('gamepad', 'gamepad-mod')
+	+icon('placeholder', 'placeholder-mod')
+	+icon('brainstorm', 'brainstorm-mod')

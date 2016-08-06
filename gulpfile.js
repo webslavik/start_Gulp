@@ -23,9 +23,15 @@ var gulp            = require('gulp'),
 		rename          = require('gulp-rename'),
 		sftp            = require('gulp-sftp'), // отправка файлов на сервер
 		del             = require('del'),
-		browserSync     = require('browser-sync');
+		browserSync     = require('browser-sync'),
 
-
+		/*  
+			спрайты  http://glivera-team.github.io/svg/2016/06/13/svg-sprites-2.html 
+		*/
+		svgSprite 			= require('gulp-svg-sprite'), // создание спрайта
+		svgmin 					= require('gulp-svgmin'), // минификация SVG
+		cheerio 				= require('gulp-cheerio'), // удаление лишних атрибутов из svg
+		replace 				= require('gulp-replace'); // фиксинг некоторых багов, об этом ниже
 
 
 
@@ -78,8 +84,7 @@ gulp.task('sass', function() {
 //--------------------------------------------------
 gulp.task('css-vendor', function() {
 	return gulp.src([
-			'app/bower_components/normalize-css/normalize.css',
-			'app/bower_components/bootstrap/dist/css/bootstrap.css'
+			'app/bower_components/normalize-css/normalize.css'
 		])
 		.pipe(concat('vendor.css')) // объединяем стороние бибилиотеки
 		.pipe(cleanCSS())
@@ -92,8 +97,8 @@ gulp.task('css-vendor', function() {
 //--------------------------------------------------
 gulp.task('scripts', function() {
 		return gulp.src([
-			'app/bower_components/jquery/dist/jquery.js'
-			// 'app/js/function.js'
+			'app/bower_components/jquery/dist/jquery.js',
+			'app/bower_components/svg4everybody/dist/svg4everybody.js'
 			])
 			.pipe(concat('vendor.js')) // объединяем стороние бибилиотеки
 			.pipe(uglify())
@@ -139,6 +144,47 @@ gulp.task('clear', function() {
 });
 
 
+// Создаем SVG спрайты
+//--------------------------------------------------
+gulp.task('svgSpriteBuild', function() {
+
+	return gulp.src('app/img/icon-svg/icon/*.svg')
+		// минифицируем svg
+		.pipe(svgmin({
+			js2svg: {
+				pretty: true
+			}
+		}))
+		// убираем все лишнее из спрайта
+		.pipe(cheerio({
+			run: function ($) {
+				$('[fill]').removeAttr('fill');
+				$('[stroke]').removeAttr('stroke');
+				$('[style]').removeAttr('style');
+			},
+			parserOptions: {xmlMode: true}
+		}))
+		// у этого плагина есть баг, он преобразует ">" в '&gt;'
+		// исправляем
+		.pipe(replace('&gt;', '>'))
+		// создаем спрайт и кладем в нужную папку
+		.pipe(svgSprite({
+			mode: {
+				symbol: {
+					sprite: "../../../../img/icon-svg/main-sprite.svg",
+					render: {
+						scss: {
+							dest:'../../../../../sass/3-modules/_svg-sprite.scss',
+							template: 'app/sass/2-basic/_sprite_template.scss'
+						}
+					}
+				}
+			}
+		}))
+		.pipe(gulp.dest('app/jade/_includes/svg-sprites/'));
+
+});
+
 
 // Собираем проект
 //--------------------------------------------------
@@ -164,7 +210,7 @@ gulp.task('build', ['clean', 'sass', 'scripts', 'jade'], function() {
 
 // Наблюдаем за нашими файлами
 //--------------------------------------------------
-gulp.task('watch', ['browser-sync',  'sass', 'jade', 'scripts'], function() {
+gulp.task('watch', ['browser-sync',  'sass', 'jade', 'scripts', 'css-vendor'], function() {
 		gulp.watch('app/sass/**/*', ['sass']);
 		gulp.watch('app/jade/**/*.jade', ['jade']);
 		gulp.watch('app/*.html', browserSync.reload);

@@ -1,6 +1,7 @@
 !(function() {
 
-  console.log('hi world');
+	// Плагин для работы svg иконок в разных браузерах
+	svg4everybody({});
 
 
 })();

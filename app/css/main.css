@@ -1,13 +1,10 @@
+@charset "UTF-8";
 /**
  * Foundation for Sites by ZURB
  * Version 6.2.3
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
-@font-face {
-  font-family: "OpenSansRegular";
-  src: url("../fonts/OpenSansRegular/OpenSansRegular.woff") format("woff"), url("../fonts/OpenSansRegular/OpenSansRegular.ttf") format("truetype"); }
-
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
@@ -18,15 +15,50 @@ body {
   line-height: 1.5;
   font-family: 'OpenSansRegular', sans-serif;
   background-color: #fff;
-  color: #fff;
+  color: #000;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%; }
 
 img {
   max-width: 100%; }
 
-ul {
-  list-style-type: none; }
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+/* 
+	-------------------------------------------
+	svg спрайт
+	-------------------------------------------
+*/
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor; }
+
+.icon-brainstorm {
+  font-size: 29.6429rem;
+  width: 1em; }
+
+.icon-face {
+  font-size: 2.4rem;
+  width: 1.20833em; }
+
+.icon-gamepad {
+  font-size: 30rem;
+  width: 1em; }
+
+.icon-placeholder {
+  font-size: 29.9997rem;
+  width: 1em; }
+
+.icon-smartphone {
+  font-size: 3.5rem;
+  width: 1em; }
+
+.icon-youtube-4 {
+  font-size: 2.4rem;
+  width: 1em; }
 
 .container {
   max-width: 75rem;
@@ -35,34 +67,61 @@ ul {
   .container::after {
     clear: both;
     content: "";
-    display: block; }
-  .container :nth-child(n+1) {
-    background-color: tomato;
-    width: 100%;
-    float: left;
-    padding-left: 0.625rem;
-    padding-right: 0.625rem; }
-    @media screen and (min-width: 40em) {
-      .container :nth-child(n+1) {
-        padding-left: 0.9375rem;
-        padding-right: 0.9375rem; } }
-    .container :nth-child(n+1):last-child:not(:first-child) {
-      float: right; }
-    @media screen and (min-width: 64em) {
-      .container :nth-child(n+1) {
-        background-color: green;
-        width: 33.33333%;
-        float: left;
-        padding-left: 0.625rem;
-        padding-right: 0.625rem; } }
-  @media screen and (min-width: 64em) and (min-width: 40em) {
-    .container :nth-child(n+1) {
-      padding-left: 0.9375rem;
-      padding-right: 0.9375rem; } }
-    @media screen and (min-width: 64em) {
-        .container :nth-child(n+1):last-child:not(:first-child) {
-          float: right; } }
+    display: table; }
 
-body {
-  background-color: lightblue;
+.page-title {
+  margin-bottom: 50px;
   text-align: center; }
+
+.sprites-section {
+  text-align: center; }
+
+/* Стили для наших иконок */
+.icon {
+  margin: 0 20px; }
+
+.icon-face {
+  font-size: 2rem;
+  width: 1.20833em; }
+  .icon-face.face-mod {
+    fill: grey; }
+
+.icon-smartphone {
+  font-size: 3rem;
+  width: 1em; }
+  .icon-smartphone.smartphone-mod {
+    fill: purple; }
+
+.icon-youtube-4 {
+  font-size: 3.625rem;
+  width: 1em; }
+  .icon-youtube-4.youtube4-mod {
+    fill: tomato;
+    -webkit-transition: all 180ms ease-in-out;
+    transition: all 180ms ease-in-out; }
+    .icon-youtube-4.youtube4-mod:hover, .icon-youtube-4.youtube4-mod:active {
+      fill: red; }
+
+.icon-gamepad {
+  font-size: 7.5rem;
+  width: 1em; }
+  .icon-gamepad.gamepad-mod {
+    color: lightblue;
+    -webkit-transition: all 180ms ease-in-out;
+    transition: all 180ms ease-in-out; }
+    .icon-gamepad.gamepad-mod:hover, .icon-gamepad.gamepad-mod:active {
+      color: grey; }
+
+.icon-placeholder {
+  font-size: 8.75rem;
+  width: 1em; }
+
+.icon-brainstorm {
+  font-size: 12.5rem;
+  width: 1em; }
+  .icon-brainstorm.brainstorm-mod {
+    color: red;
+    -webkit-transition: all 180ms ease-in-out;
+    transition: all 180ms ease-in-out; }
+    .icon-brainstorm.brainstorm-mod:hover, .icon-brainstorm.brainstorm-mod:active {
+      color: purple; }
