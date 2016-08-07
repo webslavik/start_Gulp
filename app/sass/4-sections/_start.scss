@@ -13,11 +13,12 @@
 }
 
 
-.sprites-section {
+.svg-sprites-section{
+  margin-bottom: 80px;
 	text-align: center;
 }
 
-/* Стили для наших иконок */
+/* Стили для SVG  иконок */
 .icon {
 	margin: 0 20px;
 }
@@ -95,4 +96,49 @@
 	  	color: purple;
 	  }
 	}
+}
+
+
+
+/* Стили для PNG  иконок */
+.png-sprites-section {
+  text-align: center;
+}
+
+
+.icon-png {
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: middle;
+
+  &__flashlight {
+    @include sprite($icon-flashlight);
+
+    &:hover,
+    &:focus {
+      @include sprite($icon-flashlight-mod);
+    }
+  }
+
+  &__instagram {
+    @include sprite($icon-instagram);
+
+    &:hover,
+    &:focus {
+      @include sprite($icon-instagram-mod);
+    }
+  }
+
+  &__weather {
+    @include sprite($icon-weather);
+  }
+
+  &__whatsapp {
+    @include sprite($icon-whatsapp);
+
+    &:hover,
+    &:focus {
+      @include sprite($icon-whatsapp-mod);
+    }
+  }
 }

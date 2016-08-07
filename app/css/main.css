@@ -60,6 +60,51 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.4rem;
   width: 1em; }
 
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
 .container {
   max-width: 75rem;
   margin-left: auto;
@@ -73,10 +118,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 50px;
   text-align: center; }
 
-.sprites-section {
+.svg-sprites-section {
+  margin-bottom: 80px;
   text-align: center; }
 
-/* Стили для наших иконок */
+/* Стили для SVG  иконок */
 .icon {
   margin: 0 20px; }
 
@@ -125,3 +171,47 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 180ms ease-in-out; }
     .icon-brainstorm.brainstorm-mod:hover, .icon-brainstorm.brainstorm-mod:active {
       color: purple; }
+
+/* Стили для PNG  иконок */
+.png-sprites-section {
+  text-align: center; }
+
+.icon-png {
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: middle; }
+  .icon-png__flashlight {
+    background-image: url(../img/icon-png/png-sprite.png);
+    background-position: 0px -98px;
+    width: 64px;
+    height: 64px; }
+    .icon-png__flashlight:hover, .icon-png__flashlight:focus {
+      background-image: url(../img/icon-png/png-sprite.png);
+      background-position: -98px 0px;
+      width: 64px;
+      height: 64px; }
+  .icon-png__instagram {
+    background-image: url(../img/icon-png/png-sprite.png);
+    background-position: -164px 0px;
+    width: 48px;
+    height: 48px; }
+    .icon-png__instagram:hover, .icon-png__instagram:focus {
+      background-image: url(../img/icon-png/png-sprite.png);
+      background-position: -66px -98px;
+      width: 48px;
+      height: 48px; }
+  .icon-png__weather {
+    background-image: url(../img/icon-png/png-sprite.png);
+    background-position: -164px -50px;
+    width: 48px;
+    height: 48px; }
+  .icon-png__whatsapp {
+    background-image: url(../img/icon-png/png-sprite.png);
+    background-position: 0px -164px;
+    width: 48px;
+    height: 48px; }
+    .icon-png__whatsapp:hover, .icon-png__whatsapp:focus {
+      background-image: url(../img/icon-png/png-sprite.png);
+      background-position: -164px -100px;
+      width: 48px;
+      height: 48px; }

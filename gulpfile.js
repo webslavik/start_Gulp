@@ -11,6 +11,8 @@
 
 */
 
+'use strict'
+
 var gulp            = require('gulp'),
 		jade            = require('gulp-jade'),
 		sass            = require('gulp-sass'),
@@ -25,8 +27,18 @@ var gulp            = require('gulp'),
 		del             = require('del'),
 		browserSync     = require('browser-sync'),
 
+		/*
+			png спрайты
+			* buffer и merge приведены в официальной документации к spritesmith.
+				без них imagemin не хотел работать
+		*/
+		spritesmith 		= require('gulp.spritesmith'),
+		imagemin 				= require('gulp-imagemin'),
+		buffer 					= require('vinyl-buffer'), 
+		merge 					= require('merge-stream'),
+
 		/*  
-			спрайты  http://glivera-team.github.io/svg/2016/06/13/svg-sprites-2.html 
+			svg спрайты  http://glivera-team.github.io/svg/2016/06/13/svg-sprites-2.html 
 		*/
 		svgSprite 			= require('gulp-svg-sprite'), // создание спрайта
 		svgmin 					= require('gulp-svgmin'), // минификация SVG
@@ -42,21 +54,20 @@ var gulp            = require('gulp'),
 */
 
 
-
 // Jade
 //--------------------------------------------------
 gulp.task('jade', function() {
 	return gulp.src('app/jade/*.jade')
-	.pipe(jade({
-			pretty: true
-	}))
-	.on('error', notify.onError(function(err) {
-			return {
-				title: 'Jade',
-				message: err.message
-			}
-	}))
-	.pipe(gulp.dest('app/'));
+		.pipe(jade({
+				pretty: true
+		}))
+		.on('error', notify.onError(function(err) {
+				return {
+					title: 'Jade',
+					message: err.message
+				}
+		}))
+		.pipe(gulp.dest('app/'));
 });
 
 
@@ -144,9 +155,9 @@ gulp.task('clear', function() {
 });
 
 
-// Создаем SVG спрайты
+// SVG спрайты
 //--------------------------------------------------
-gulp.task('svgSpriteBuild', function() {
+gulp.task('svg-sprite', function() {
 
 	return gulp.src('app/img/icon-svg/icon/*.svg')
 		// минифицируем svg
@@ -185,6 +196,34 @@ gulp.task('svgSpriteBuild', function() {
 
 });
 
+// PNG спрайты
+//--------------------------------------------------
+gulp.task('pngSprite', function () {
+  var spriteData = gulp.src('app/img/icon-png/icon/*.png')
+    .pipe(spritesmith({
+        imgName: 'png-sprite.png',
+        cssName: '_png-sprite.scss',
+    		imgPath: '../img/icon-png/png-sprite.png',
+        algorithm: 'binary-tree',
+        cssFormat: 'scss',
+        padding: 2,
+        cssVarMap: function(pngSprite) {
+        	pngSprite.name = 'icon-' + pngSprite.name
+        }
+    }));
+  
+
+	  var imgStream = spriteData.img
+	  	.pipe(buffer())
+	  	.pipe(imagemin())
+	  	.pipe(gulp.dest('app/img/icon-png/'));
+
+	  var cssStream = spriteData.css
+	  	.pipe(gulp.dest('app/sass/3-modules/'));
+
+	  return merge(imgStream, cssStream);
+
+});
 
 // Собираем проект
 //--------------------------------------------------
@@ -215,6 +254,11 @@ gulp.task('watch', ['browser-sync',  'sass', 'jade', 'scripts', 'css-vendor'], f
 		gulp.watch('app/jade/**/*.jade', ['jade']);
 		gulp.watch('app/*.html', browserSync.reload);
 		gulp.watch('app/js/**/*', browserSync.reload);
+
+		// отслеживаем изменения в папках со спрайтами и 
+		// запускаем соответствующие задачи
+		gulp.watch('app/img/icon-png/icon/*', ['pngSprite']);
+		gulp.watch('app/img/icon-svg/icon/*', ['svg-sprite']);
 })
 
 

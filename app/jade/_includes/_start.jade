@@ -9,8 +9,8 @@ mixin icon(name,mod)
 	h1 Project elements
 
 
-
-.container.sprites-section
+// Подключаем SVG иконки
+.container.svg-sprites-section
 	h2 SVG Icons
 	+icon('face', 'face-mod')
 	+icon('smartphone', 'smartphone-mod')
@@ -18,3 +18,11 @@ mixin icon(name,mod)
 	+icon('gamepad', 'gamepad-mod')
 	+icon('placeholder', 'placeholder-mod')
 	+icon('brainstorm', 'brainstorm-mod')
+
+// Подключаем PNG иконки
+.container.png-sprites-section
+	h2 PNG Icons
+	i.icon-png.icon-png__flashlight
+	i.icon-png.icon-png__instagram
+	i.icon-png.icon-png__weather
+	i.icon-png.icon-png__whatsapp

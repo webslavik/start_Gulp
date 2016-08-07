@@ -1,0 +1,173 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$icon-amazon-name: 'icon-amazon';
+$icon-amazon-x: 0px;
+$icon-amazon-y: 0px;
+$icon-amazon-offset-x: 0px;
+$icon-amazon-offset-y: 0px;
+$icon-amazon-width: 96px;
+$icon-amazon-height: 96px;
+$icon-amazon-total-width: 212px;
+$icon-amazon-total-height: 212px;
+$icon-amazon-image: '../img/icon-png/png-sprite.png';
+$icon-amazon: (0px, 0px, 0px, 0px, 96px, 96px, 212px, 212px, '../img/icon-png/png-sprite.png', 'icon-amazon', );
+$icon-flashlight-mod-name: 'icon-flashlight-mod';
+$icon-flashlight-mod-x: 98px;
+$icon-flashlight-mod-y: 0px;
+$icon-flashlight-mod-offset-x: -98px;
+$icon-flashlight-mod-offset-y: 0px;
+$icon-flashlight-mod-width: 64px;
+$icon-flashlight-mod-height: 64px;
+$icon-flashlight-mod-total-width: 212px;
+$icon-flashlight-mod-total-height: 212px;
+$icon-flashlight-mod-image: '../img/icon-png/png-sprite.png';
+$icon-flashlight-mod: (98px, 0px, -98px, 0px, 64px, 64px, 212px, 212px, '../img/icon-png/png-sprite.png', 'icon-flashlight-mod', );
+$icon-flashlight-name: 'icon-flashlight';
+$icon-flashlight-x: 0px;
+$icon-flashlight-y: 98px;
+$icon-flashlight-offset-x: 0px;
+$icon-flashlight-offset-y: -98px;
+$icon-flashlight-width: 64px;
+$icon-flashlight-height: 64px;
+$icon-flashlight-total-width: 212px;
+$icon-flashlight-total-height: 212px;
+$icon-flashlight-image: '../img/icon-png/png-sprite.png';
+$icon-flashlight: (0px, 98px, 0px, -98px, 64px, 64px, 212px, 212px, '../img/icon-png/png-sprite.png', 'icon-flashlight', );
+$icon-instagram-mod-name: 'icon-instagram-mod';
+$icon-instagram-mod-x: 66px;
+$icon-instagram-mod-y: 98px;
+$icon-instagram-mod-offset-x: -66px;
+$icon-instagram-mod-offset-y: -98px;
+$icon-instagram-mod-width: 48px;
+$icon-instagram-mod-height: 48px;
+$icon-instagram-mod-total-width: 212px;
+$icon-instagram-mod-total-height: 212px;
+$icon-instagram-mod-image: '../img/icon-png/png-sprite.png';
+$icon-instagram-mod: (66px, 98px, -66px, -98px, 48px, 48px, 212px, 212px, '../img/icon-png/png-sprite.png', 'icon-instagram-mod', );
+$icon-instagram-name: 'icon-instagram';
+$icon-instagram-x: 164px;
+$icon-instagram-y: 0px;
+$icon-instagram-offset-x: -164px;
+$icon-instagram-offset-y: 0px;
+$icon-instagram-width: 48px;
+$icon-instagram-height: 48px;
+$icon-instagram-total-width: 212px;
+$icon-instagram-total-height: 212px;
+$icon-instagram-image: '../img/icon-png/png-sprite.png';
+$icon-instagram: (164px, 0px, -164px, 0px, 48px, 48px, 212px, 212px, '../img/icon-png/png-sprite.png', 'icon-instagram', );
+$icon-weather-name: 'icon-weather';
+$icon-weather-x: 164px;
+$icon-weather-y: 50px;
+$icon-weather-offset-x: -164px;
+$icon-weather-offset-y: -50px;
+$icon-weather-width: 48px;
+$icon-weather-height: 48px;
+$icon-weather-total-width: 212px;
+$icon-weather-total-height: 212px;
+$icon-weather-image: '../img/icon-png/png-sprite.png';
+$icon-weather: (164px, 50px, -164px, -50px, 48px, 48px, 212px, 212px, '../img/icon-png/png-sprite.png', 'icon-weather', );
+$icon-whatsapp-mod-name: 'icon-whatsapp-mod';
+$icon-whatsapp-mod-x: 164px;
+$icon-whatsapp-mod-y: 100px;
+$icon-whatsapp-mod-offset-x: -164px;
+$icon-whatsapp-mod-offset-y: -100px;
+$icon-whatsapp-mod-width: 48px;
+$icon-whatsapp-mod-height: 48px;
+$icon-whatsapp-mod-total-width: 212px;
+$icon-whatsapp-mod-total-height: 212px;
+$icon-whatsapp-mod-image: '../img/icon-png/png-sprite.png';
+$icon-whatsapp-mod: (164px, 100px, -164px, -100px, 48px, 48px, 212px, 212px, '../img/icon-png/png-sprite.png', 'icon-whatsapp-mod', );
+$icon-whatsapp-name: 'icon-whatsapp';
+$icon-whatsapp-x: 0px;
+$icon-whatsapp-y: 164px;
+$icon-whatsapp-offset-x: 0px;
+$icon-whatsapp-offset-y: -164px;
+$icon-whatsapp-width: 48px;
+$icon-whatsapp-height: 48px;
+$icon-whatsapp-total-width: 212px;
+$icon-whatsapp-total-height: 212px;
+$icon-whatsapp-image: '../img/icon-png/png-sprite.png';
+$icon-whatsapp: (0px, 164px, 0px, -164px, 48px, 48px, 212px, 212px, '../img/icon-png/png-sprite.png', 'icon-whatsapp', );
+$spritesheet-width: 212px;
+$spritesheet-height: 212px;
+$spritesheet-image: '../img/icon-png/png-sprite.png';
+$spritesheet-sprites: ($icon-amazon, $icon-flashlight-mod, $icon-flashlight, $icon-instagram-mod, $icon-instagram, $icon-weather, $icon-whatsapp-mod, $icon-whatsapp, );
+$spritesheet: (212px, 212px, '../img/icon-png/png-sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
