@@ -102,6 +102,7 @@
 
 /* Стили для PNG  иконок */
 .png-sprites-section {
+  margin-bottom: 80px;
   text-align: center;
 }
 
@@ -141,4 +142,26 @@
       @include sprite($icon-whatsapp-mod);
     }
   }
+}
+
+
+/*
+
+  Проверяем шрифты
+
+*/
+.check-fonts {
+  text-align: center;
+}
+
+.p-1 {
+  font-family: $font-italic;
+}
+
+.p-2 {
+  font-family: $font-extraBoldItalic;
+}
+
+.p-3 {
+  font-family: $font-helvetica;
 }

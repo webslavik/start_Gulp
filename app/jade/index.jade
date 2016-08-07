@@ -8,10 +8,12 @@ html(lang="ru")
 		
 		title
 			| Page Title
-				
+		
+		//- подключаем шрифты до загрузки стилей
+		script(src="js/font-loader.js")
+
 		//- Минифицированные стили стороних библиотек
 		link(rel="stylesheet", href="css/vendor.css")
-
 		//- Наши стили
 		link(rel="stylesheet", href="css/main.css")
 

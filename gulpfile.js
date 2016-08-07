@@ -43,9 +43,13 @@ var gulp            = require('gulp'),
 		svgSprite 			= require('gulp-svg-sprite'), // создание спрайта
 		svgmin 					= require('gulp-svgmin'), // минификация SVG
 		cheerio 				= require('gulp-cheerio'), // удаление лишних атрибутов из svg
-		replace 				= require('gulp-replace'); // фиксинг некоторых багов, об этом ниже
+		replace 				= require('gulp-replace'), // фиксинг некоторых багов, об этом ниже
 
+		/*
+			конвертация шрифтов
+		*/
 
+		cssfont64 			= require('gulp-cssfont64');
 
 /*
 	
@@ -141,18 +145,6 @@ gulp.task('sftp', function () {
 });
 
 
-// Удаляем папку dist
-//--------------------------------------------------
-gulp.task('clean', function() {
-		return del.sync('dist');
-});
-
-
-// Для изображений
-//--------------------------------------------------
-gulp.task('clear', function() {
-		return cache.clearAll();
-});
 
 
 // SVG спрайты
@@ -225,6 +217,31 @@ gulp.task('pngSprite', function () {
 
 });
 
+
+// Конвертация шрифтов
+//--------------------------------------------------
+gulp.task('fontsConvert', function () {
+	return gulp.src('app/fonts/not-converted-fonts/*.{woff, woff2}')
+		.pipe(cssfont64())
+		.pipe(gulp.dest('app/fonts/convert-fonts/'))
+		.pipe(browserSync.stream());
+});
+
+
+
+/*
+	
+	Сборка проекта
+
+*/
+
+// Удаляем папку dist
+//--------------------------------------------------
+gulp.task('clean', function() {
+		return del.sync('dist');
+});
+
+
 // Собираем проект
 //--------------------------------------------------
 gulp.task('build', ['clean', 'sass', 'scripts', 'jade'], function() {
@@ -247,6 +264,12 @@ gulp.task('build', ['clean', 'sass', 'scripts', 'jade'], function() {
 
 
 
+/*
+
+	Наблюдение за файлами
+
+*/
+
 // Наблюдаем за нашими файлами
 //--------------------------------------------------
 gulp.task('watch', ['browser-sync',  'sass', 'jade', 'scripts', 'css-vendor'], function() {
@@ -259,6 +282,9 @@ gulp.task('watch', ['browser-sync',  'sass', 'jade', 'scripts', 'css-vendor'], f
 		// запускаем соответствующие задачи
 		gulp.watch('app/img/icon-png/icon/*', ['pngSprite']);
 		gulp.watch('app/img/icon-svg/icon/*', ['svg-sprite']);
+
+		// отслеживаем папку со шрифтами
+		gulp.watch('app/fonts/not-converted-fonts/*', ['fontsConvert']);
 })
 
 
