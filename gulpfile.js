@@ -151,7 +151,7 @@ gulp.task('sftp', function () {
 //--------------------------------------------------
 gulp.task('svg-sprite', function() {
 
-	return gulp.src('app/img/icon-svg/icon/*.svg')
+	return gulp.src('app/img/icon-svg/*.svg')
 		// минифицируем svg
 		.pipe(svgmin({
 			js2svg: {
@@ -174,11 +174,11 @@ gulp.task('svg-sprite', function() {
 		.pipe(svgSprite({
 			mode: {
 				symbol: {
-					sprite: "../../../../img/icon-svg/main-sprite.svg",
+					sprite: "../../../../img/svg-sprite.svg",
 					render: {
 						scss: {
-							dest:'../../../../../sass/3-modules/_svg-sprite.scss',
-							template: 'app/sass/2-basic/_sprite_template.scss'
+							dest:'../../../../../sass/modules/_svg-sprite.scss',
+							template: 'app/sass/mixins/_sprite_template.scss'
 						}
 					}
 				}
@@ -191,11 +191,11 @@ gulp.task('svg-sprite', function() {
 // PNG спрайты
 //--------------------------------------------------
 gulp.task('pngSprite', function () {
-  var spriteData = gulp.src('app/img/icon-png/icon/*.png')
+  var spriteData = gulp.src('app/img/icon-png/*.png')
     .pipe(spritesmith({
         imgName: 'png-sprite.png',
         cssName: '_png-sprite.scss',
-    		imgPath: '../img/icon-png/png-sprite.png',
+    		imgPath: '../img/png-sprite.png',
         algorithm: 'binary-tree',
         cssFormat: 'scss',
         padding: 2,
@@ -208,10 +208,10 @@ gulp.task('pngSprite', function () {
 	  var imgStream = spriteData.img
 	  	.pipe(buffer())
 	  	.pipe(imagemin())
-	  	.pipe(gulp.dest('app/img/icon-png/'));
+	  	.pipe(gulp.dest('app/img/'));
 
 	  var cssStream = spriteData.css
-	  	.pipe(gulp.dest('app/sass/3-modules/'));
+	  	.pipe(gulp.dest('app/sass/modules/'));
 
 	  return merge(imgStream, cssStream);
 
@@ -223,7 +223,7 @@ gulp.task('pngSprite', function () {
 gulp.task('fontsConvert', function () {
 	return gulp.src('app/fonts/not-converted-fonts/*.{woff, woff2}')
 		.pipe(cssfont64())
-		.pipe(gulp.dest('app/fonts/convert-fonts/'))
+		.pipe(gulp.dest('app/fonts'))
 		.pipe(browserSync.stream());
 });
 

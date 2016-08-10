@@ -1,6 +1,4 @@
 
-// 1 - TOOLS Подключаем стороние библиотеки и тд.
-
 // Фреймфорк
 @import '../bower_components/foundation-sites/scss/foundation.scss'
 
@@ -9,16 +7,26 @@
 
 
 
-// 2 - BASICS
-@import '2-basic/vars'
-@import '2-basic/fonts'
-@import '2-basic/elements'
+// Основные переменные для проекта
+@import 'variables'
 
 
-// 3 - MODULES
-@import '3-modules/svg-sprite'
-@import '3-modules/png-sprite'
-@import '3-modules/buttons'
+// Находятся миксины или вспомогательные стили для создания спрайтов
+// @import 'mixins/example-mixins.scss'
 
-// 4 - PAGES
-@import '4-sections/start'
+
+// Модули
+@import 'modules/basic-elements'
+@import 'modules/svg-sprite'
+@import 'modules/png-sprite'
+@import 'modules/grid'
+@import 'modules/buttons'
+
+
+// Эта папка включает в себя большие "куски" страницы,
+// такие как footer, header, sidebar и тд.
+@import 'sections/footer'
+
+
+// Уникальные стили для каждой страницы
+@import 'pages/start'

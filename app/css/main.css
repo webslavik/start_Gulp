@@ -105,6 +105,23 @@ The `sprites` mixin generates identical output to the CSS template
 
 @include sprites($spritesheet-sprites);
 */
+/* 
+	-------------------------------------------
+	GRID
+	-------------------------------------------
+*/
+.container {
+  width: 70%;
+  margin: 0 auto; }
+
+/* 
+	-----------------------------------------------
+	FOOTER
+	-----------------------------------------------
+*/
+.footer {
+  background-color: lightcoral; }
+
 .container {
   max-width: 75rem;
   margin-left: auto;
@@ -182,37 +199,37 @@ The `sprites` mixin generates identical output to the CSS template
   margin: 0 10px;
   vertical-align: middle; }
   .icon-png__flashlight {
-    background-image: url(../img/icon-png/png-sprite.png);
+    background-image: url(../img/png-sprite.png);
     background-position: 0px -98px;
     width: 64px;
     height: 64px; }
     .icon-png__flashlight:hover, .icon-png__flashlight:focus {
-      background-image: url(../img/icon-png/png-sprite.png);
+      background-image: url(../img/png-sprite.png);
       background-position: -98px 0px;
       width: 64px;
       height: 64px; }
   .icon-png__instagram {
-    background-image: url(../img/icon-png/png-sprite.png);
+    background-image: url(../img/png-sprite.png);
     background-position: -164px 0px;
     width: 48px;
     height: 48px; }
     .icon-png__instagram:hover, .icon-png__instagram:focus {
-      background-image: url(../img/icon-png/png-sprite.png);
+      background-image: url(../img/png-sprite.png);
       background-position: -66px -98px;
       width: 48px;
       height: 48px; }
   .icon-png__weather {
-    background-image: url(../img/icon-png/png-sprite.png);
+    background-image: url(../img/png-sprite.png);
     background-position: -164px -50px;
     width: 48px;
     height: 48px; }
   .icon-png__whatsapp {
-    background-image: url(../img/icon-png/png-sprite.png);
+    background-image: url(../img/png-sprite.png);
     background-position: 0px -164px;
     width: 48px;
     height: 48px; }
     .icon-png__whatsapp:hover, .icon-png__whatsapp:focus {
-      background-image: url(../img/icon-png/png-sprite.png);
+      background-image: url(../img/png-sprite.png);
       background-position: -164px -100px;
       width: 48px;
       height: 48px; }

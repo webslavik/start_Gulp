@@ -1,8 +1,4 @@
-//- миксин для добавления иконок спрайта
-mixin icon(name,mod)
-	- mod = mod || ''
-	svg(class="icon icon-" + name + ' ' + mod)
-		use(xlink:href="img/icon-svg/main-sprite.svg#" + name)
+include ../mixins/_svg-sprite.jade
 
 
 .container.page-title
