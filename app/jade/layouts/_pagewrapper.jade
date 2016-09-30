@@ -1,0 +1,37 @@
+//- "Обертка" для всех страниц
+//- ---------------------------------------------
+
+<!DOCTYPE html>
+html(lang="ru")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(meta name="format-detection" content="telephone=no")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		//- meta(name="viewport" content="width=device-width, maximum-scale=1.0")
+
+		
+		block title
+			| Page Title
+		
+		//- подключаем шрифты до загрузки стилей
+		script(src="js/font-loader.js")
+
+		//- Минифицированные стили стороних библиотек
+		link(rel="stylesheet", href="css/vendor.css")
+		//- Наши стили
+		link(rel="stylesheet", href="css/main.css")
+
+	
+		
+	body
+		
+		block section
+				
+
+		
+		script(src='js/vendor.js')
+		script(src='js/function.js')
+
+		block scripts
+			

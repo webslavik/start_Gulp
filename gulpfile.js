@@ -15,6 +15,7 @@
 
 var gulp            = require('gulp'),
 		jade            = require('gulp-jade'),
+		pug 						= require('gulp-pug'), // emmet не работает :(
 		sass            = require('gulp-sass'),
 		autoprefixer    = require('gulp-autoprefixer'),
 		cleanCSS        = require('gulp-clean-css'), // минификация css

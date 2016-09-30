@@ -1,30 +1,18 @@
+//- Подключаем "обертку" для всех встраниц
+extends layouts/_pagewrapper
 
 
-<!DOCTYPE html>
-html(lang="ru")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+//- заголовок
+block title
+	title Start Page
+
+
+//- секции, блоки и тд. самой страницы
+block section
+	.page-wrap
+		include partials/_start
+
+
+//- по необходимости js код
+block scripts
 		
-		title
-			| Page Title
-		
-		//- подключаем шрифты до загрузки стилей
-		script(src="js/font-loader.js")
-
-		//- Минифицированные стили стороних библиотек
-		link(rel="stylesheet", href="css/vendor.css")
-		//- Наши стили
-		link(rel="stylesheet", href="css/main.css")
-
-	
-		
-	body
-		
-		.page-wrap
-			include partials/_start
-
-		
-		script(src='js/vendor.js')
-		script(src='js/function.js')
-
