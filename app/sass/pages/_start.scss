@@ -141,23 +141,46 @@
 }
 
 
-/*
 
-  Проверяем шрифты
 
-*/
-.check-fonts {
-  text-align: center;
+@include breakpoint(max-width 639px) {
+  body {
+    background-color: green;
+  }
 }
 
-.p-1 {
-  font-family: $font-italic;
-}
 
-.p-2 {
-  font-family: $font-extraBoldItalic;
-}
+.block-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
-.p-3 {
-  font-family: $font-helvetica;
+  background-color: #3498db;
+
+  li {
+    @include span(3);
+    background-color: #1abc9c;
+    margin-bottom: 20px;
+  }
+
+  @include breakpoint($desktop) {
+    li {
+      @include span(4);
+      background-color: #f39c12;
+    }
+  }
+
+  @include breakpoint($tablet) {
+    li {
+      @include span(6);
+      background-color: #e74c3c;
+    }
+  }
+
+  @include breakpoint($mobile) {
+    li {
+      @include span(12);
+      background-color: #8e44ad;
+    }
+  }
 }

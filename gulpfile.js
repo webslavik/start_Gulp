@@ -19,6 +19,8 @@ var gulp            = require('gulp'),
 		sass            = require('gulp-sass'),
 		autoprefixer    = require('gulp-autoprefixer'),
 		cleanCSS        = require('gulp-clean-css'), // минификация css
+		gcmq 						= require('gulp-group-css-media-queries'), // объединение media queries
+		sourcemaps 			= require('gulp-sourcemaps'), // sourcemaps
 		concat          = require('gulp-concat'), // объединение js
 		uglify          = require('gulp-uglify'), // минифицируем js
 		notify          = require("gulp-notify"), // выводим ошибки
@@ -80,6 +82,7 @@ gulp.task('jade', function() {
 //--------------------------------------------------
 gulp.task('sass', function() {
 	return gulp.src('app/sass/*.sass')
+		.pipe(sourcemaps.init())
 		.pipe(sass())
 		.on('error', notify.onError(function(err) {
 			return {
@@ -89,8 +92,10 @@ gulp.task('sass', function() {
 		}))
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
 		.pipe(gulp.dest('app/css/'))
+		.pipe(gcmq())
 		.pipe(cleanCSS())
 		// .pipe(rename({suffix: '.min'}))
+		.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest('app/css/'))
 		.pipe(browserSync.reload({stream: true}));
 })

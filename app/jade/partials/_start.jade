@@ -4,39 +4,29 @@ include ../mixins/_svg-sprite.jade
 .container.page-title
 	h1 Project elements
 
-
-// Подключаем SVG иконки
-.container.svg-sprites-section
-	h2 SVG Icons
-	+icon('face', 'face-mod')
-	+icon('smartphone', 'smartphone-mod')
-	+icon('youtube-4', 'youtube4-mod')
-	+icon('gamepad', 'gamepad-mod')
-	+icon('placeholder', 'placeholder-mod')
-	+icon('brainstorm', 'brainstorm-mod')
-
-// Подключаем PNG иконки
-.container.png-sprites-section
-	h2 PNG Icons
-	i.icon-png.icon-png__flashlight
-	i.icon-png.icon-png__instagram
-	i.icon-png.icon-png__weather
-	i.icon-png.icon-png__whatsapp
+	ul.block-list
+		- var i = 0
+		while (i++ < 4)
+			li
+				h2 
+				p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.
 
 
-.container.check-fonts
+//- // Подключаем SVG иконки
+//- .container.svg-sprites-section
+//- 	h2 SVG Icons
+//- 	+icon('face', 'face-mod')
+//- 	+icon('smartphone', 'smartphone-mod')
+//- 	+icon('youtube-4', 'youtube4-mod')
+//- 	+icon('gamepad', 'gamepad-mod')
+//- 	+icon('placeholder', 'placeholder-mod')
+//- 	+icon('brainstorm', 'brainstorm-mod')
 
-	h2 Check fonts
-
-	p
-		|   Стандартый текст
-
-	p.p-1
-		|   Fira Sans Italic - Съешь какой то текст
-
-	p.p-2
-		|   Fira sans Extra Bold Italic - Съешь какой то текст 
-
-	p.p-3
-		|   Helvetiva Neue Roman - Съешь какой то текст 
+//- // Подключаем PNG иконки
+//- .container.png-sprites-section
+//- 	h2 PNG Icons
+//- 	i.icon-png.icon-png__flashlight
+//- 	i.icon-png.icon-png__instagram
+//- 	i.icon-png.icon-png__weather
+//- 	i.icon-png.icon-png__whatsapp
 
