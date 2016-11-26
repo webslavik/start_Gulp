@@ -8,34 +8,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Start Page</title>
     <script src="js/font-loader.js"></script>
-    <link rel="stylesheet" href="css/vendor.css"/>
+    <!-- build:css css/vendor.min.css-->
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css"/>
+    <!-- endbuild-->
+    <!-- build:css css/main.min.css-->
     <link rel="stylesheet" href="css/main.css"/>
+    <!-- endbuild-->
   </head>
   <body>
     <div class="page-wrap">
-      <div class="container page-title">
-        <h1>Project elements</h1>
-        <ul class="block-list">
-          <li>
-            <h2> </h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.</p>
-          </li>
-          <li>
-            <h2> </h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.</p>
-          </li>
-          <li>
-            <h2> </h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.</p>
-          </li>
-          <li>
-            <h2> </h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.</p>
-          </li>
-        </ul>
+      <!-- HEADER AND CONTENT-->
+      <div class="content">
+        <!-- BEGIN HEADER-->
+        <header class="header">
+          <div class="container">
+            <h1>this is header</h1>
+          </div>
+        </header>
+        <!-- END HEADER-->
+        <div class="container page-title">
+          <h1>Project elements</h1>
+          <ul class="block-list">
+            <li>
+              <h2> </h2>
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.</p>
+            </li>
+            <li>
+              <h2> </h2>
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.</p>
+            </li>
+            <li>
+              <h2> </h2>
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.</p>
+            </li>
+            <li>
+              <h2> </h2>
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At provident quo distinctio perferendis libero maxime, assumenda omnis itaque voluptates tempora.</p>
+            </li>
+          </ul>
+        </div>
       </div>
+      <!-- BEGIN FOOTER-->
+      <footer class="footer">
+        <div class="container">
+          <h1>this is footer</h1>
+        </div>
+      </footer>
+      <!-- END FOOTER-->
     </div>
-    <script src="js/vendor.js"></script>
+    <!-- build:js js/vendor.min.js-->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/svg4everybody/dist/svg4everybody.js"></script>
+    <!-- endbuild-->
+    <!-- build:js js/main.min.js-->
     <script src="js/function.js"></script>
+    <!-- endbuild-->
   </body>
 </html>

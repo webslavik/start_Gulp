@@ -10,7 +10,11 @@ block title
 //- секции, блоки и тд. самой страницы
 block section
 	.page-wrap
-		include partials/_start
+		// HEADER AND CONTENT
+		.content
+			include partials/_header
+			include partials/_start
+		include partials/_footer
 
 
 //- по необходимости js код

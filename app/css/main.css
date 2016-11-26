@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   min-width: 320px;
   position: relative;
@@ -126,7 +132,25 @@ The `sprites` mixin generates identical output to the CSS template
 	-------------------------------------------
 */
 
+.page-wrap {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
 .container {
+  position: relative;
   max-width: 1170px;
   margin-left: auto;
   margin-right: auto;
@@ -146,12 +170,24 @@ The `sprites` mixin generates identical output to the CSS template
 
 /* 
 	-----------------------------------------------
-	FOOTER
+		HEADER
+	-----------------------------------------------
+*/
+
+.header {
+  padding: 20px 0px;
+  background-color: #F44336;
+}
+
+/* 
+	-----------------------------------------------
+		FOOTER
 	-----------------------------------------------
 */
 
 .footer {
-  background-color: lightcoral;
+  padding: 20px 0;
+  background-color: #673AB7;
 }
 
 .page-title {
@@ -323,10 +359,6 @@ The `sprites` mixin generates identical output to the CSS template
 }
 
 @media (max-width: 639px) {
-  body {
-    background-color: green;
-  }
-
   .block-list li {
     width: 98.61111%;
     float: left;

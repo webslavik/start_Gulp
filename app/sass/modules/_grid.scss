@@ -26,8 +26,15 @@ $hidpi: min-resolution 1.5dppx;
 
 //-----------------------------------------------------------
 
+.page-wrap {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 
 .container {
-	// background-color: tomato;
+	position: relative;
 	@include container(1170px);
 }

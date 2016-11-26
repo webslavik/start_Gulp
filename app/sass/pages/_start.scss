@@ -1,5 +1,4 @@
 .page-wrap {
-	
 }
 
 
@@ -141,13 +140,6 @@
 }
 
 
-
-
-@include breakpoint(max-width 639px) {
-  body {
-    background-color: green;
-  }
-}
 
 
 .block-list {

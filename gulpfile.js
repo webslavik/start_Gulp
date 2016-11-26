@@ -21,11 +21,11 @@ var gulp            = require('gulp'),
 		cleanCSS        = require('gulp-clean-css'), // минификация css
 		gcmq 						= require('gulp-group-css-media-queries'), // объединение media queries
 		sourcemaps 			= require('gulp-sourcemaps'), // sourcemaps
-		concat          = require('gulp-concat'), // объединение js
 		uglify          = require('gulp-uglify'), // минифицируем js
 		notify          = require("gulp-notify"), // выводим ошибки
 		cache           = require('gulp-cache'),
-		rename          = require('gulp-rename'),
+		useref 					= require('gulp-useref'), // для обьединения css и js файлов
+		gulpif 					= require('gulp-if'),
 		sftp            = require('gulp-sftp'), // отправка файлов на сервер
 		del             = require('del'),
 		browserSync     = require('browser-sync'),
@@ -93,38 +93,11 @@ gulp.task('sass', function() {
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
 		.pipe(gulp.dest('app/css/'))
 		.pipe(gcmq())
-		.pipe(cleanCSS())
-		// .pipe(rename({suffix: '.min'}))
 		.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest('app/css/'))
 		.pipe(browserSync.reload({stream: true}));
 })
 
-
-// Для объединения стороних библиотек
-//--------------------------------------------------
-gulp.task('css-vendor', function() {
-	return gulp.src([
-			'app/bower_components/normalize-css/normalize.css'
-		])
-		.pipe(concat('vendor.css')) // объединяем стороние бибилиотеки
-		.pipe(cleanCSS())
-		.pipe(rename({basename: 'vendor'}))
-		.pipe(gulp.dest('app/css'))
-})
-
-
-// Скрипты
-//--------------------------------------------------
-gulp.task('scripts', function() {
-		return gulp.src([
-			'app/bower_components/jquery/dist/jquery.js',
-			'app/bower_components/svg4everybody/dist/svg4everybody.js'
-			])
-			.pipe(concat('vendor.js')) // объединяем стороние бибилиотеки
-			.pipe(uglify())
-			.pipe(gulp.dest('app/js'))
-});
 
 
 // Сервер
@@ -250,18 +223,18 @@ gulp.task('clean', function() {
 
 // Собираем проект
 //--------------------------------------------------
-gulp.task('build', ['clean', 'sass', 'scripts', 'jade'], function() {
-
-		var buildCss = gulp.src('app/css/*')
-			.pipe(gulp.dest('dist/css/'))
+gulp.task('build', ['clean', 'sass', 'jade'], function() {
 
 		var buildFonts = gulp.src('app/fonts/**/*')
 			.pipe(gulp.dest('dist/fonts/'));
 
-		var buildJS = gulp.src('app/js/**/*')
+		var buildJS = gulp.src('app/js/font-loader.js')
 			.pipe(gulp.dest('dist/js/'));
 
 		var buildHTML = gulp.src('app/*.html')
+			.pipe(useref())
+			//.pipe(gulpif('*.js', uglify()))
+			//.pipe(gulpif('*.css', cleanCSS()))
 			.pipe(gulp.dest('dist/'));
 
 		var buildImg = gulp.src('app/img/**/*')
@@ -278,7 +251,7 @@ gulp.task('build', ['clean', 'sass', 'scripts', 'jade'], function() {
 
 // Наблюдаем за нашими файлами
 //--------------------------------------------------
-gulp.task('watch', ['browser-sync',  'sass', 'jade', 'scripts', 'css-vendor'], function() {
+gulp.task('watch', ['browser-sync',  'sass', 'jade'], function() {
 		gulp.watch('app/sass/**/*', ['sass']);
 		gulp.watch('app/jade/**/*.jade', ['jade']);
 		gulp.watch('app/*.html', browserSync.reload);
@@ -286,8 +259,8 @@ gulp.task('watch', ['browser-sync',  'sass', 'jade', 'scripts', 'css-vendor'], f
 
 		// отслеживаем изменения в папках со спрайтами и 
 		// запускаем соответствующие задачи
-		gulp.watch('app/img/icon-png/icon/*', ['pngSprite']);
-		gulp.watch('app/img/icon-svg/icon/*', ['svg-sprite']);
+		gulp.watch('app/img/icon-png/*', ['pngSprite']);
+		gulp.watch('app/img/icon-svg/*', ['svg-sprite']);
 
 		// отслеживаем папку со шрифтами
 		gulp.watch('app/fonts/not-converted-fonts/*', ['fontsConvert']);
