@@ -156,8 +156,8 @@ gulp.task('svg-sprite', function() {
 					sprite: "../../../../img/svg-sprite.svg",
 					render: {
 						scss: {
-							dest:'../../../../../sass/modules/_svg-sprite.scss',
-							template: 'app/sass/mixins/_sprite_template.scss'
+							dest:'../../../../../sass/base/_svg-sprite.scss',
+							template: 'app/sass/utilites/_sprite_template.scss'
 						}
 					}
 				}
@@ -190,7 +190,7 @@ gulp.task('pngSprite', function () {
 	  	.pipe(gulp.dest('app/img/'));
 
 	  var cssStream = spriteData.css
-	  	.pipe(gulp.dest('app/sass/modules/'));
+	  	.pipe(gulp.dest('app/sass/base/'));
 
 	  return merge(imgStream, cssStream);
 

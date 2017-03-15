@@ -16,10 +16,12 @@ $susy: (
 
 
 // примеры Breakpoint
-$wide: 1200px;
-$desktop: 1024px 1200px;
-$tablet: 640px 1024px;
-$mobile: max-width 639px;
+$extraWide: 1920px;
+$wide: 1280px 1919px;
+$desktop: 960px 1279px;
+$tablet: 600px 959px;
+$mobile: max-width 599px;
+
 $landscape: (max-height 600px) (orientation portrait);
 $hidpi: min-resolution 1.5dppx;
 

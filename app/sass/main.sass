@@ -13,30 +13,24 @@
 
 
 
-// Основные переменные для проекта
-@import 'variables'
+// Utilites
+@import 'utilites/vars'
 
 
-// Находятся миксины или вспомогательные стили для создания спрайтов
-// @import 'mixins/example-mixins.scss'
+// Base
+@import 'base/svg-sprite'
+@import 'base/png-sprite'
+@import 'base/tags'
+@import 'base/typography'
 
 
-// Модули
-// @import 'modules/fonts'
-@import 'modules/basic-elements'
-@import 'modules/svg-sprite'
-@import 'modules/png-sprite'
-@import 'modules/grid'
+// Layout
+@import 'layout/grid'
+
+
+// Modules
 @import 'modules/buttons'
+@import 'modules/start'
 
-
-// Эта папка включает в себя повторяющиеся "куски" страницы,
-// такие как footer, header, sidebar и тд.
-//---------------------------------------------
-@import 'sections/header'
-@import 'sections/footer'
-
-
-// Стили для каждой страницы
-//---------------------------------------------
-@import 'pages/start'
+@import 'modules/header/header'
+@import 'modules/footer/footer'
